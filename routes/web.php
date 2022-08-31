@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('personnel.index');
 });
+
+Route::get('/personnel', 'App\Http\Controllers\PersonnelController@index')->name('personnel.index');
+Route::get('/personnel/create', 'App\Http\Controllers\PersonnelController@create')->name('personnel.create');
+Route::get('/personnel/{id}', 'App\Http\Controllers\PersonnelController@show')->name('personnel.show');
+Route::post('/personnel', 'App\Http\Controllers\PersonnelController@store')->name('personnel.store');
